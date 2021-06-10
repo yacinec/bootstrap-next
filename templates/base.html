@@ -103,64 +103,71 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse bg-inverse{% else %}navbar-light bg-faded{% endif %} fixed-top" role="navigation">
-    {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
-    <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target=".navbar-main-collapse" aria-label="Toggle navigation">
-        <i class="icon-menu"></i>
-    </button>
-    {% endif %}
-    {% if SITELOGO or not HIDE_SITENAME %}
-    <a href="{{ SITEURL }}/" class="navbar-brand">
-        {% if SITELOGO %}<img class="img-fluid float-left gap-right" src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
-        {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
-    </a>
-    {% endif %}
-    <div class="collapse navbar-collapse navbar-main-collapse">
-        <ul class="navbar-nav">
-            {% for title, link in MENUITEMS %}
-                <li class="nav-item"><a href="{{ link }}" class="nav-link">{{ title }}</a></li>
-            {% endfor %}
-            {% if not PAGES_SORT_ATTRIBUTE -%}
-                {% set PAGES_SORT_ATTRIBUTE = 'title' %}
-            {%- endif %}
-            {% if DISPLAY_PAGES_ON_MENU %}
-                {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
-                    {% if p.url %}
-                     <li class="nav-item {% if p == page %}active{% endif %}"><a href="{{ SITEURL }}/{{ p.url }}" class="nav-link">
-                         {{ p.menulabel|default(p.title) }}
-                      </a></li>
-                    {% endif %}
-                  {% endfor %}
+<nav class="navbar navbar-expand flex-column flex-md-row bd-navbar navbar-dark bg-primary fixed-top text-white" role="navigation">
+    <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
+    
+        <div class="navbar-header">
+            {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
+            <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target=".navbar-main-collapse" aria-label="Toggle navigation">
+                <i class="icon-menu"></i>
+            </button>
             {% endif %}
-            {% if DISPLAY_CATEGORIES_ON_MENU %}
-                {% for cat, null in categories %}
-                    <li class="nav-item {% if cat == category %}active{% endif %}">
-                        <a href="{{ SITEURL }}/{{ cat.url }}" class="nav-link">{{ cat | capitalize }}</a>
-                    </li>
+            <a href="{{ SITEURL }}/" class="navbar-brand">
+                {% if SITELOGO %}<img class="img-responsive pull-left gap-right" src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
+                {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
+            </a>
+        </div>
+    
+    
+        <div class="collapse navbar-collapse navbar-main-collapse">
+            <ul class="navbar-nav">
+                {% for title, link in MENUITEMS %}
+                    <li class="nav-item"><a href="{{ link }}" class="nav-link">{{ title }}</a></li>
                 {% endfor %}
+                {% if not PAGES_SORT_ATTRIBUTE -%}
+                    {% set PAGES_SORT_ATTRIBUTE = 'title' %}
+                {%- endif %}
+                {% if DISPLAY_PAGES_ON_MENU %}
+                    {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
+                        {% if p.url %}
+                        <li class="nav-item {% if p == page %}active{% endif %}"><a href="{{ SITEURL }}/{{ p.url }}" class="nav-link">
+                            {{ p.menulabel|default(p.title) }}
+                        </a></li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                {% if DISPLAY_CATEGORIES_ON_MENU %}
+                    {% for cat, null in categories %}
+                        <li class="nav-item {% if cat == category %}active{% endif %}">
+                            <a href="{{ SITEURL }}/{{ cat.url }}" class="nav-link">{{ cat | capitalize }}</a>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </ul>
+            <ul class="navbar-nav navbar-right">
+            {% if 'tipue_search' in PLUGINS %}
+            <li class="nav-item"><span>
+                <form class="navbar-search" action="{{ SEARCH_URL | default('/search.html') }}">
+                <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+            </li>
             {% endif %}
-        </ul>
-        <ul class="navbar-nav navbar-right">
-        {% if 'tipue_search' in PLUGINS %}
-          <li class="nav-item"><span>
-            <form class="navbar-search" action="{{ SEARCH_URL | default('/search.html') }}">
-              <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
-            </form></span>
-          </li>
-        {% endif %}
-        {% if ARCHIVES_SAVE_AS %}
-          <li class="nav-item"><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}" class="nav-link"><i class="icon-list"></i><span class="icon-label">{{ _('Archives') }}</span></a></li>
-        {% endif %}
-        </ul>
+            {% if ARCHIVES_SAVE_AS %}
+            <li class="nav-item"><a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}" class="nav-link"><i class="icon-list"></i><span class="icon-label">{{ _('Archives') }}</span></a></li>
+            {% endif %}
+            </ul>
+        </div>
     </div>
     <!-- /.navbar-collapse -->
 </nav> <!-- /.navbar -->
 <!-- Banner -->
+
 {% if BANNER and BANNER_ALL_PAGES %}
     {% include 'includes/banner.html' %}
 {% elif BANNER and not BANNER_ALL_PAGES %}
     {% block banner %}{% endblock %}
 {% endif %}
+
 <!-- End Banner -->
 <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     <div class="row">
