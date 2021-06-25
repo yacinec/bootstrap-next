@@ -1,0 +1,45 @@
+/*
+* AJOUT CUSTOM
+*/
+
+html {
+    font-size: 14px;
+}
+
+h1, h2, h3, h4 {
+    color: rgb(49, 126, 172);
+}
+
+h1 {
+    font-size: 36px;
+}
+
+nav {
+    height: 50px;
+}
+
+.nav-link {
+    padding: 15px !important;
+}
+
+.navbar-nav a {
+    font-size: 14px !important;
+
+}
+
+.list-group-item {
+    padding-left: 0;
+}
+
+#sidebar .card {
+    /*background: rgb(245, 245, 245);*/
+}
+
+#links {
+    padding-left: 0;
+}
+
+.navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: #178acc;
+}

@@ -53,9 +53,13 @@
     {# Twitter Cards tags #}
     {% include 'includes/twitter_cards.html' %}
 
+
     <!-- Bootstrap -->
     {% if BOOTSTRAP_THEME %}
-        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/themes/{{ BOOTSTRAP_THEME }}/bootstrap.min.css" rel="stylesheet">
+        <!--<link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/themes/{{ BOOTSTRAP_THEME }}/bootstrap.min.css" rel="stylesheet">-->
+
+        <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/cerulean/bootstrap.min.css" rel="stylesheet">
+        
     {% else %}
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet">
     {% endif %}
@@ -91,7 +95,7 @@
     {% endif %}
 
     {% if tag and TAG_FEED_ATOM %}
-        <link href="{{ SITEURL }}/{{ TAG_FEED_ATOM|.format(tag.slug) }}" type="application/atom+xml" rel="alternate"
+        <link href="{{ SITEURL }}/{{ TAG_FEED_ATOM.format(tag.slug) }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} {{ tag }} ATOM Feed"/>
     {% endif %}
 
@@ -100,29 +104,35 @@
               title="{{ SITENAME }} {{ category }} ATOM Feed"/>
     {% endif %}
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.7/js/tether.min.js" integrity="sha512-X7kCKQJMwapt5FCOl2+ilyuHJp+6ISxFTVrx+nkrhgplZozodT9taV2GuGHxBgKKpOJZ4je77OuPooJg9FJLvw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg flex-column flex-md-row bd-navbar navbar-dark bg-primary fixed-top text-white" role="navigation">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" role="navigation">
     <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     
-        <!--<div class="navbar-header">
-            {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
+        <div class="navbar-header">
+        <!--    {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
             <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target=".navbar-main-collapse" aria-label="Toggle navigation">
                 <i class="icon-menu"></i>
             </button>
             {% endif %}-->
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target=".navbar-main-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#maNavbar">
                 <i class="icon-menu"></i>
-              </button>
-            <a href="{{ SITEURL }}/" class="navbar-brand">
+            </button>
+
+            <a href="{{ SITEURL }}/" class="navbar-brand" style="float: left;">
                 {% if SITELOGO %}<img class="img-responsive pull-left gap-right" src="{{ SITEURL }}/{{ SITELOGO }}" width="{{ SITELOGO_SIZE }}"/> {% endif %}
                 {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
             </a>
-        <!--</div>-->
+
+            
+        </div>
     
     
-        <div class="collapse navbar-collapse navbar-main-collapse">
+        <div class="collapse navbar-collapse" id="maNavbar">
             <ul class="navbar-nav">
                 {% for title, link in MENUITEMS %}
                     <li class="nav-item"><a href="{{ link }}" class="nav-link">{{ title }}</a></li>
@@ -146,6 +156,9 @@
                         </li>
                     {% endfor %}
                 {% endif %}
+                {% for title, link in MENUITEMS_LAST %}
+                    <li class="nav-item"><a href="{{ link }}" class="nav-link">{{ title }}</a></li>
+                {% endfor %}
             </ul>
             <ul class="navbar-nav navbar-right">
             {% if 'tipue_search' in PLUGINS %}
@@ -174,16 +187,9 @@
 <!-- End Banner -->
 <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
     <div class="row">
-        {% if not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
-        <div class="col-md-9{% if SIDEBAR_ON_LEFT %} push-md-3{% endif %}">
-        {% else %}
-        <div class="col-xl-12">
-        {% endif %}
-        {% block breadcrumbs %}
-        {% endblock %}
-        {% block content %}
-        {% endblock %}
-        </div>
+        
+        
+        
         {% if not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
         <div class="col-md-3{% if SIDEBAR_ON_LEFT %} pull-md-9{% endif %}" id="sidebar">
             <aside>
@@ -196,6 +202,17 @@
             </aside>
         </div>
         {% endif %}
+
+        {% if not HIDE_SIDEBAR or ABOUT_ME or AVATAR %}
+        <div class="col-md-9{% if SIDEBAR_ON_LEFT %} push-md-3{% endif %}">
+        {% else %}
+        <div class="col-xl-12">
+        {% endif %}
+        {% block breadcrumbs %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+        </div>
     </div>
 </div>
 {% include 'includes/footer.html' %}
