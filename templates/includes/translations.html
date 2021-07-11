@@ -1,8 +1,11 @@
 {% macro translations_for(article) %}
 {% if article.translations %}
-<span class="badge badge-info">{{ _('Lang') }}</span>
 {% for translation in article.translations %}
-	<a href="{{ SITEURL }}/{{ translation.url }}">{{ translation.lang }}</a>
+	{% if translation.lang == "en" %}
+		<a class="ml-3" href="{{ SITEURL }}/{{ translation.url }}"><img src="{{ FLAGS['en'] }}" alt="English" width="24px" style="float: right"></a>
+	{% else %}
+		<a class="ml-3" href="{{ SITEURL }}/{{ translation.url }}"><img src="{{ FLAGS['fr'] }}" alt="Français" width="24px" style="float: right"></a>
+	{% endif %}
 {% endfor %}
 {% endif %}
 {% endmacro %}
