@@ -147,3 +147,6 @@ msgstr "Article següent"
 msgid "Lang"
 msgstr "Idioma"
 
+#: templates/includes/partners.html:14
+msgid "Partners"
+msgstr "Socis"

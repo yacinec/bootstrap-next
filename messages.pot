@@ -146,3 +146,5 @@ msgstr ""
 msgid "Lang"
 msgstr ""
 
+msgid "Partners"
+msgstr ""

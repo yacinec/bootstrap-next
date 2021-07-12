@@ -149,3 +149,6 @@ msgstr "Sprache"
 #~ msgid "Related Posts:"
 #~ msgstr "Verwandte Beiträge"
 
+#: templates/includes/partners.html:14
+msgid "Partners"
+msgstr "Partner"
