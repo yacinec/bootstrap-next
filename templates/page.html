@@ -46,11 +46,15 @@
 
 {% block content %}
     <section id="content" class="body">
-        {% if page.title %}
-        <h1 class="entry-title">{{ page.title }}</h1>
-        {% endif %}
-        {% import 'includes/translations.html' as translations with context %}
-        {{ translations.translations_for(page) }}
+        
+        <div class="d-flex align-items-center justify-content-between">
+            {% if page.title %}
+                <h1 class="entry-title" class="float-left">{{ page.title }}</h1>
+            {% endif %}
+            
+            {% import 'includes/translations.html' as translations with context %}
+            {{ translations.translations_for(page) }}
+        </div>
         {% if PDF_PROCESSOR %}
             <a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">
                 get the pdf

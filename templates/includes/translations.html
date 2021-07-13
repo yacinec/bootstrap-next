@@ -2,9 +2,9 @@
 {% if article.translations %}
 {% for translation in article.translations %}
 	{% if translation.lang == "en" %}
-		<a class="ml-3" href="{{ SITEURL }}/{{ translation.url }}"><img src="{{ FLAGS['en'] }}" alt="English" width="24px" style="float: right"></a>
+		<a class="ml-3" href="{{ SITEURL }}/{{ translation.url }}"><img src="{{ FLAGS['en'] }}" alt="English" title="English" width="24px"></a>
 	{% else %}
-		<a class="ml-3" href="{{ SITEURL }}/{{ translation.url }}"><img src="{{ FLAGS['fr'] }}" alt="Français" width="24px" style="float: right"></a>
+		<a class="ml-3" href="{{ SITEURL }}/{{ translation.url }}"><img src="{{ FLAGS['fr'] }}" alt="Français" title="Français" width="24px"></a>
 	{% endif %}
 {% endfor %}
 {% endif %}
