@@ -52,8 +52,14 @@
                 <h1 class="entry-title" class="float-left">{{ page.title }}</h1>
             {% endif %}
             
+            <div>
             {% import 'includes/translations.html' as translations with context %}
             {{ translations.translations_for(page) }}
+
+            {% if EDITION_URL %}
+                <button onclick="window.location.href='{{ EDITION_URL }}pages/{{ page.lang }}/{{ page.name }}.md'" type="button" class="pull-right btn btn-outline-primary">{{ _('Edit') }}</button>
+            {% endif %}
+            </div>
         </div>
         {% if PDF_PROCESSOR %}
             <a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">
