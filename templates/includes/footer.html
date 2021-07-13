@@ -1,41 +1,39 @@
 <footer>
-   <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
-      <hr>
-      {% if DISPLAY_FOOTER_PARTNER or DISPLAY_FOOTER_CONTACT %}
-      <div class="row">
-        
-        {% if DISPLAY_FOOTER_PARTNER %}
-          <div class="col-sm-8 mb-5 footer__partners">
-            {{ FOOTER_PARTNER }}
-          </div>
-        {% endif %}
-        {% if DISPLAY_FOOTER_CONTACT == true and (ADRESS or MAIL or PHONE) %}
-          <div class="col-sm-4 footer__informations">
-              <h4>{{ _('Contact us') }}</h4>
+  <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
+    <hr>
+    {% if BANNER_FOOTER or DISPLAY_CONTACT_FOOTER %}
+     <div class="row">
+       
+       {% if BANNER_FOOTER %}
+         <div class="col-xs-8 mb-5 footer__partners">
+           {{ BANNER_FOOTER }}
+         </div>
+       {% endif %}
+       {% if DISPLAY_FOOTER_CONTACT == true and (ADDRESS or MAIL or PHONE) %}
+         <div class="col-xs-4 footer__informations">
+             <h4>{{ _('Contact us') }}</h4>
 
-              {% if ADRESS %}
-                <h5>{{ _('Adress') }}</h5>
-                <p>{{ ADRESS }}</p>
-              {% endif %}
+             {% if ADDRESS %}
+               <h5>{{ _('Address') }}</h5>
+               <p>{{ ADDRESS }}</p>
+             {% endif %}
 
-              {% if MAIL %}
-                <h5>{{ _('Mail') }}</h5>
-                <a href="mailto:{{ MAIL }}">{{ MAIL }}</a>
-              {% endif %}
+             {% if MAIL %}
+               <h5>{{ _('Mail') }}</h5>
+               <a href="mailto:{{ MAIL }}">{{ MAIL }}</a>
+             {% endif %}
 
-              {% if PHONE %}
-                <h5>{{ _('Phone number') }}</h5>
-                <a href="tel:{{ PHONE }}">
-                  {% for number in PHONE %}
-                    {% if (loop.index % 2) == 0 and not loop.last -%}{{number}}.{% else -%}{{number}}{%- endif %}
-                  {% endfor %}
-                </a>
-              {% endif %}
+             {% if PHONE %}
+               <h5>{{ _('Phone number') }}</h5>
+               <a href="tel:{{ PHONE }}">
+                 {{ PHONE }}
+               </a>
+             {% endif %}
 
-          </div>
-        {% endif %}
-      </div>
-     {% endif %}
+         </div>
+       {% endif %}
+     </div>
+    {% endif %}
      <div class="row">
         {% if articles %}
           {% if articles[0].modified %}
