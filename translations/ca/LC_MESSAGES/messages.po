@@ -150,3 +150,15 @@ msgstr "Idioma"
 #: templates/includes/partners.html:14
 msgid "Partners"
 msgstr "Socis"
+
+msgid "Contact"
+msgstr "contacte"
+
+msgid "Address"
+msgstr "adreça:"
+
+msgid "Mail"
+msgstr "Correu electrònic:"
+
+msgid "Phone number"
+msgstr "Telèfon:"
