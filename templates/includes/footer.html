@@ -1,82 +1,114 @@
 <footer>
   <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
-    <hr>
-    
-<!-- LES IMAGES -->
-<div class="row">
-  <div class="col-sm-3 col-sm-pull-9"></div>
-  <div class="col-sm-9">
-    <div class="row" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px;">
-      <div class="col-md-4">
-          <a href="http://www.univ-amu.fr"><img src="{{ SITEURL }}/img/logo_amu_nouvelle-version.png" border="0" width="160px"></a>
-      </div>
-      <div class="col-md-4">
-          <a href="https://www.univ-amu.fr/fr/public/programme-investissements-davenir-pia"><img src="{{ SITEURL }}/img/logo_investissement-davenir.png" border="0" width="75px"></a>
-      </div>  
-      <div class="col-md-4">
-          <a href="http://www.cnrs.fr"><img src="{{ SITEURL }}/img/logo_cnrs.jpg" border="0" width="90px"></a>
-      </div>
-    </div>
-
-    <!-- LES LIENS -->
-    <div class="row mb-5" style="margin-bottom: 50px;">
-      <div class="col-md-4">
-          <h4>Autres liens</h4>
-          <ul class="list-group" style="margin-left: 25px;">
-            <li clas="list-group-item"><a href="#">test</a></li>
-            <li clas="list-group-item"><a href="#">test</a></li>
-            <li clas="list-group-item"><a href="#">test</a></li>
-            <li clas="list-group-item"><a href="#">test</a></li>
-            <li clas="list-group-item"><a href="#">test</a></li>
-          </ul>
-      </div>
-      <div class="col-md-4">
-          <h4>Sitemap</h4>
-          <ul class="list-group" style="margin-left: 25px;">
-            <li clas="list-group-item"><a href="#">test</a></li>
-            <li clas="list-group-item"><a href="#">test</a></li>
-            <li clas="list-group-item"><a href="#">test</a></li>
-            <li clas="list-group-item"><a href="#">test</a></li>
-            <li clas="list-group-item"><a href="#">test</a></li>
-          </ul>
-      </div>  
-      <div class="col-md-4">
-          <h4>{{ _('Contact') }}</h4>
-          <div class="col-xs-12 footer__informations">
-
-            {% if ADDRESS %}
-              <h5>{{ _('Address') }}</h5>
-              <p>{{ ADDRESS }}</p>
-            {% endif %}
-
-            {% if MAIL %}
-              <h5>{{ _('Mail') }}</h5>
-              <a href="mailto:{{ MAIL }}">{{ MAIL }}</a>
-            {% endif %}
-
-            {% if PHONE %}
-              <h5>{{ _('Phone number') }}</h5>
-              <a href="tel:{{ PHONE }}">
-                {{ PHONE }}
-              </a>
-            {% endif %}
-
-        </div>
-      </div>
-    </div>
-
-    <div class="row" style="display: flex; align-items: center; margin-bottom: 50px;">
-      <div class="col-md-4">
-          <a href="https://www.univ-amu.fr/fr/public/initiative-dexcellence"><img src="{{ SITEURL }}/img/logo_amidex.png" alt="AMIDEX" width="150px"></a>
-      </div>
-      <div class="col-md-8">
-        <p>Le n° de projet de l'institut Archimède 393948192840821038508130580</p>
-      </div>
-    </div>
-    {% endif %}
-  </div>
-</div>
-{% endif %}
+      <hr>
+      <!--{% if BANNER_FOOTER or DISPLAY_CONTACT_FOOTER %}
+       <div class="row">
+         
+         {% if BANNER_FOOTER %}
+           <div class="col-xs-8 mb-5 footer__partners">
+             {{ BANNER_FOOTER }}
+           </div>
+         {% endif %}
+         {% if DISPLAY_FOOTER_CONTACT == true and (ADDRESS or MAIL or PHONE) %}
+           <div class="col-xs-4 footer__informations">
+               <h4>{{ _('Contact us') }}</h4>
+ 
+               {% if ADDRESS %}
+                 <h5>{{ _('Address') }}</h5>
+                 <p>{{ ADDRESS }}</p>
+               {% endif %}
+ 
+               {% if MAIL %}
+                 <h5>{{ _('Mail') }}</h5>
+                 <a href="mailto:{{ MAIL }}">{{ MAIL }}</a>
+               {% endif %}
+ 
+               {% if PHONE %}
+                 <h5>{{ _('Phone number') }}</h5>
+                 <a href="tel:{{ PHONE }}">
+                   {{ PHONE }}
+                 </a>
+               {% endif %}
+ 
+           </div>
+         {% endif %}-->
+         
+       <!-- LES IMAGES -->
+       <div class="row">
+         <div class="col-sm-3 col-sm-pull-9"></div>
+         <div class="col-sm-9">
+           <div class="row" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px;">
+             <div class="col-md-4">
+                 <a href="http://www.univ-amu.fr"><img src="{{ SITEURL }}/img/logo_amu_nouvelle-version.png" border="0" width="160px"></a>
+             </div>
+             <div class="col-md-4">
+                 <a href="https://www.univ-amu.fr/fr/public/programme-investissements-davenir-pia"><img src="{{ SITEURL }}/img/logo_investissement-davenir.png" border="0" width="75px"></a>
+             </div>  
+             <div class="col-md-4">
+                 <a href="http://www.cnrs.fr"><img src="{{ SITEURL }}/img/logo_cnrs.jpg" border="0" width="90px"></a>
+             </div>
+           </div>
+     
+           <!-- LES LIENS -->
+           <div class="row mb-5" style="margin-bottom: 50px;">
+             <div class="col-md-4">
+                 <h4>Autres liens</h4>
+                 <ul class="list-group" style="margin-left: 25px;">
+                   <li clas="list-group-item"><a href="#">test</a></li>
+                   <li clas="list-group-item"><a href="#">test</a></li>
+                   <li clas="list-group-item"><a href="#">test</a></li>
+                   <li clas="list-group-item"><a href="#">test</a></li>
+                   <li clas="list-group-item"><a href="#">test</a></li>
+                 </ul>
+             </div>
+             <div class="col-md-4">
+                 <h4>Sitemap</h4>
+                 <ul class="list-group" style="margin-left: 25px;">
+                   <li clas="list-group-item"><a href="#">test</a></li>
+                   <li clas="list-group-item"><a href="#">test</a></li>
+                   <li clas="list-group-item"><a href="#">test</a></li>
+                   <li clas="list-group-item"><a href="#">test</a></li>
+                   <li clas="list-group-item"><a href="#">test</a></li>
+                 </ul>
+             </div>  
+             <div class="col-md-4">
+                 <h4>{{ _('Contact') }}</h4>
+                 <div class="col-xs-12 footer__informations">
+     
+                   {% if ADDRESS %}
+                     <h5>{{ _('Address') }}</h5>
+                     <p>{{ ADDRESS }}</p>
+                   {% endif %}
+     
+                   {% if MAIL %}
+                     <h5>{{ _('Mail') }}</h5>
+                     <a href="mailto:{{ MAIL }}">{{ MAIL }}</a>
+                   {% endif %}
+     
+                   {% if PHONE %}
+                     <h5>{{ _('Phone number') }}</h5>
+                     <a href="tel:{{ PHONE }}">
+                       {{ PHONE }}
+                     </a>
+                   {% endif %}
+     
+               </div>
+             </div>
+           </div>
+     
+           <div class="row" style="display: flex; align-items: center; margin-bottom: 50px;">
+             <div class="col-md-4">
+                 <a href="https://www.univ-amu.fr/fr/public/initiative-dexcellence"><img src="{{ SITEURL }}/img/logo_amidex.png" alt="AMIDEX" width="150px"></a>
+             </div>
+             <div class="col-md-8">
+               <p>Le n° de projet de l'institut Archimède 393948192840821038508130580</p>
+             </div>
+           </div>
+           {% endif %}
+         </div>
+       </div>
+       
+ 
 
      <div class="row">
         {% if articles %}
