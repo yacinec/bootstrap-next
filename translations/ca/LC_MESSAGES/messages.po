@@ -162,3 +162,6 @@ msgstr "Correu electrònic:"
 
 msgid "Phone number"
 msgstr "Telèfon:"
+
+msgid "Edit"
+msgstr "Edita"

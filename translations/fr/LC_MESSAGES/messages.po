@@ -164,3 +164,6 @@ msgstr "Courriel:"
 
 msgid "Phone number"
 msgstr "Téléphone:"
+
+msgid "Edit"
+msgstr "Éditer"
