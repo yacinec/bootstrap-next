@@ -69,12 +69,14 @@
 
            {% if FOOTER_LAST %}
            <div class="row" style="display: flex; align-items: center; margin-bottom: 50px;">
-             <div class="col-md-4">
-                 <a href="https://www.univ-amu.fr/fr/public/initiative-dexcellence"><img src="{{ SITEURL }}/img/logo_amidex.png" alt="AMIDEX" width="150px"></a>
-             </div>
-             <div class="col-md-8">
-               <p>Le n° de projet de l'institut Archimède 393948192840821038508130580</p>
-             </div>
+            {% for link, image, alt, size, text in FOOTER_LINE %}
+              <div class="col-md-4">
+                <a href="{{ link }}"><img src="{{ image }}" alt="{{ alt }}" width="{{ size }}"></a>
+              </div>
+              <div class="col-md-8">
+                <p>{{ text }}</p>
+              </div>
+            {% endfor %}
            </div>
            {% endif %}
  
