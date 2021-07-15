@@ -11,18 +11,18 @@
   <i class="fas fa-external-link-square-alt"></i>
   {{ title(_('Partners'), DISABLE_SIDEBAR_TITLE_ICONS, icon="external-link-square") }}</h4>
 
-  <ul class="@-group" id="links" class="center">
+  <ul class="@-group" id="links">
 
     {% if LOCALE | first == 'en_US.UTF-8'  %}
         {% for name, link, logo in PARTNERS_ENGLISH %}
             <li class="list-group-item ml-0">
-              <a href="{{ link }}" target="_blank"><img src="{{ logo }}" alt="{{ name }}" title="{{ name }}" width="75%" ></a>
+              <center><a href="{{ link }}" target="_blank"><img src="{{ logo }}" alt="{{ name }}" title="{{ name }}" width="75%" ></a></center>
             </li>
         {% endfor %}    
     {% else %}
-        {% for name, link, logo, size in PARTNERS %}
+        {% for name, link, logo in PARTNERS %}
             <li class="list-group-item ml-0">
-              <a href="{{ link }}" target="_blank"><img src="{{ logo }}" alt="{{ name }}" title="{{ name }}" width="75%"></a>
+              <center><a href="{{ link }}" target="_blank"><img src="{{ logo }}" alt="{{ name }}" title="{{ name }}" width="75%"></a></center>
             </li>
         {% endfor %}
     {% endif %}
