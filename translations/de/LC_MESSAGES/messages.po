@@ -164,3 +164,6 @@ msgstr "Email:"
 
 msgid "Phone number"
 msgstr "Telefon:"
+
+msgid "Edit"
+msgstr "Bsearbeiten"
