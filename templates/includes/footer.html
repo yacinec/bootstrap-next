@@ -8,7 +8,7 @@
             <!-- LES IMAGES -->
             {% if FOOTER_FIRST %}
               <div class="row" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px;">
-                {% for link, image, size in FOOTER_PARTNERS %}
+                {% for link, image, size in FOOTER_FIRST %}
                   <div class="col-md-4">
                       <a href="{{ link }}"><img src="{{ image }}" border="0" width="{{ size }}"></a>
                   </div>
@@ -32,11 +32,18 @@
               </div> 
               <div class="col-md-4">
                  <ul class="list-group" style="margin-left: 25px;">
-                   <li clas="list-group-item"><a href="#">test</a></li>
-                   <li clas="list-group-item"><a href="#">test</a></li>
-                   <li clas="list-group-item"><a href="#">test</a></li>
-                   <li clas="list-group-item"><a href="#">test</a></li>
-                   <li clas="list-group-item"><a href="#">test</a></li>
+                  {% for category in FOOTER_BLOCK %}
+                    <li clas="list-group-item"><a href="#">{{category}}</a>
+                    {% if category | length > 0 %}
+                      <ul class="list-group" style="margin-left: 25px;">
+                        {% for subcategory in FOOTER_BLOCK[category] %}
+                          <li clas="list-group-item"><a href="#">{{subcategory}}</a></li>
+                        {% endfor %}
+
+                      </ul>
+                    {% endif %}
+                    </li>
+                  {% endfor %}
                  </ul>
              </div>  
              <div class="col-md-4">
@@ -67,16 +74,14 @@
 
      
 
-           {% if FOOTER_LAST %}
+           {% if FOOTER_LINE %}
            <div class="row" style="display: flex; align-items: center; margin-bottom: 50px;">
-            {% if FOOTER_LINE %}
               <div class="col-md-4">
                 <a href="{{ FOOTER_LINE.link }}"><img src="{{ FOOTER_LINE.image }}" alt="{{ FOOTER_LINE.alt }}" width="{{ FOOTER_LINE.size }}"></a>
               </div>
               <div class="col-md-8">
                 <p>{{ FOOTER_LINE.text }}</p>
               </div>
-            {% endif %}
            </div>
            {% endif %}
  
