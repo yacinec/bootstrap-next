@@ -69,14 +69,14 @@
 
            {% if FOOTER_LAST %}
            <div class="row" style="display: flex; align-items: center; margin-bottom: 50px;">
-            {% for link, image, alt, size, text in FOOTER_LINE %}
+            {% if FOOTER_LINE %}
               <div class="col-md-4">
-                <a href="{{ link }}"><img src="{{ image }}" alt="{{ alt }}" width="{{ size }}"></a>
+                <a href="{{ FOOTER_LINE.link }}"><img src="{{ FOOTER_LINE.image }}" alt="{{ FOOTER_LINE.alt }}" width="{{ FOOTER_LINE.size }}"></a>
               </div>
               <div class="col-md-8">
-                <p>{{ text }}</p>
+                <p>{{ FOOTER_LINE.text }}</p>
               </div>
-            {% endfor %}
+            {% endif %}
            </div>
            {% endif %}
  
