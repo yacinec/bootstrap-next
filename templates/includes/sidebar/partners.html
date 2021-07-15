@@ -14,15 +14,15 @@
   <ul class="@-group" id="links">
 
     {% if LOCALE | first == 'en_US.UTF-8'  %}
-        {% for name, link in PARTNERS_ENGLISH %}
+        {% for name, link, logo in PARTNERS_ENGLISH %}
             <li class="list-group-item ml-0">
-            <a href="{{ link }}" target="_blank">{{ name }}</a>
+            <a href="{{ link }}" target="_blank"><img src="{{ logo }}" alt="{{ name }}" title="{{ name }}"></a>
             </li>
         {% endfor %}    
     {% else %}
-        {% for name, link in PARTNERS %}
+        {% for name, link, logo in PARTNERS %}
             <li class="list-group-item ml-0">
-            <a href="{{ link }}" target="_blank">{{ name }}</a>
+            <a href="{{ link }}" target="_blank"><img src="{{ logo }}" alt="{{ name }}" title="{{ name }}"></a>
             </li>
         {% endfor %}
     {% endif %}
