@@ -16,13 +16,13 @@
     {% if LOCALE | first == 'en_US.UTF-8'  %}
         {% for name, link, logo in PARTNERS_ENGLISH %}
             <li class="list-group-item ml-0">
-              <a href="{{ link }}" target="_blank"><img src="{{ logo }}" alt="{{ name }}" title="{{ name }}" width="100px"></a>
+              <a href="{{ link }}" target="_blank"><img src="{{ logo }}" alt="{{ name }}" title="{{ name }}" width="50px" height="50px"></a>
             </li>
         {% endfor %}    
     {% else %}
         {% for name, link, logo in PARTNERS %}
             <li class="list-group-item ml-0">
-              <a href="{{ link }}" target="_blank"><img src="{{ logo }}" alt="{{ name }}" title="{{ name }}" width="100px"></a>
+              <a href="{{ link }}" target="_blank"><img src="{{ logo }}" alt="{{ name }}" title="{{ name }}" width="50px" height="50px"></a>
             </li>
         {% endfor %}
     {% endif %}
