@@ -6,7 +6,6 @@
             <div class="card flex-md-row mb-4 box-shadow h-md-250 align-items-center" style="border: none;">
                 {% for category_name, category_url in IMG_CATEGORY %}
                     {% if article.category == category_name %}
-                        <!--<img class="article-img" >-->
                         <img class="card-img-left flex-auto d-none d-md-block" style="width: 350px; height: 250px;" src="{{ category_url }}" alt="{{ article.category }}">
                     {% endif %}
                 {% endfor %}
