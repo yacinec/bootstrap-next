@@ -28,7 +28,9 @@
                             {% include 'includes/comment_count.html' %}
                         </div>
                     </p>
-                    <a class="btn btn-secondary btn-md float-right" href="{{ SITEURL }}/{{ article.url }}">{{ _('more') }}…</a>
+                    <div class="d-flex justify-content-end">
+                        <a class="badge bg-secondary p-2" href="{{ SITEURL }}/{{ article.url }}">{{ _('more') }}…</a>
+                    </div>
                 </div>
             </div>
             
